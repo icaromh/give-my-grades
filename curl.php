@@ -53,7 +53,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Give me my grades!</title>
+    <title>Give my grades!</title>
     <meta charset="UTF-8">
     <!-- <meta http-equiv="refresh" CONTENT="60"> -->
     <link rel="Shortcut Icon" type="image/ico" href="http://www.fadergs.edu.br/fadergs/img2/portal/favicon.ico">
