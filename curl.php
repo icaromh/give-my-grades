@@ -83,9 +83,7 @@
                 <div class="row">
                     <div id="logo" class="col-xs-12 col-sm-2">
                         <button type="button" class="btn btn-default btn-sm pull-left visible-xs" style="margin-top: 10px; margin-right: 10px;"><i class="glyphicon glyphicon-th-list"></i></button>
-                        <a href="#">
-                            <img src="assets/images/logo-interno.png" alt="" class="img-responsive">
-                        </a>
+                        <img src="assets/images/logo-interno.png" alt="" class="pull-left">
                     </div>
                     <div class="col-xs-12 col-sm-10">
                     </div>
