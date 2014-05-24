@@ -82,7 +82,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div id="logo" class="col-xs-12 col-sm-12">
-                        <button type="button" class="btn btn-default btn-sm pull-left visible-xs" style="margin-top: 10px; margin-right: 10px;"><i class="glyphicon glyphicon-th-list"></i></button>
+                        <button type="button" id="toggle-menu" class="btn btn-default btn-sm pull-left visible-xs" style="margin-top: 10px; margin-right: 10px;"><i class="glyphicon glyphicon-th-list"></i></button>
                         <img src="assets/images/logo-interno.png" alt="" class="pull-left">
                     </div>
                     <div class="col-xs-12 col-sm-12">
@@ -92,12 +92,12 @@
             </header><!-- /header -->
             <div id="main" class="container-fluid">
                 <div class="row">
-                    <div class="col-xs-5 col-sm-2 hidden-xs" id="sidebar-left">
+                    <div class="col-xs-5 col-sm-2" id="sidebar-left">
                         <ul class="nav main-menu">
                             <li><a href="index.php" class="active">
                                 <i class="glyphicon glyphicon-home"></i> Início
                             </a></li>
-                            <li><a href="info.html">
+                           <!--  <li><a href="info.html">
                                 <i class="glyphicon glyphicon-list-alt"></i> <span class="hidden-xs">Notas</span>
                             </a></li>
                             <li><a href="info.html">
@@ -114,7 +114,7 @@
                             </a></li>
                             <li><a href="info.html">
                                 <i class="glyphicon glyphicon-off"></i> Sair
-                            </a></li>
+                            </a></li> -->
                             <li><a href="info.html">
                                 <i class="glyphicon glyphicon-info-sign"></i> Sobre
                             </a></li>
@@ -136,7 +136,8 @@
                     
                 </div>
 
-
+        <script src="assets/js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="assets/js/main.js" type="text/javascript" charset="utf-8" async defer></script>
         <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
