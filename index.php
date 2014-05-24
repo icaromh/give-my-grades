@@ -5,7 +5,7 @@
         <title>Give my grades!</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="Shortcut Icon" type="image/ico" href="assets/img/favicon.ico">
+        <link rel="Shortcut Icon" type="image/ico" href="assets/images/favicon.ico">
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
