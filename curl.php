@@ -94,7 +94,7 @@
                 <div class="row">
                     <div class="col-xs-5 col-sm-2 hidden-xs" id="sidebar-left">
                         <ul class="nav main-menu">
-                            <li><a href="" class="active">
+                            <li><a href="index.php" class="active">
                                 <i class="glyphicon glyphicon-home"></i> Início
                             </a></li>
                             <li><a href="info.html">
