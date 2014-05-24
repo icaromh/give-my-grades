@@ -1,64 +1,102 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <head>
-        <title>Give my grades!</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="Shortcut Icon" type="image/ico" href="assets/images/favicon.ico">
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-    </head>
-</head>
-<body>
-    <a href="https://github.com/icaromh2/give-my-grades"  target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0; z-index:1" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
-    <div class="container main-container">
-        <div class="row">
-            <div class="col-md-12">
-                <br>
-                    <img src="assets/images/logo.png" alt="" class="img-responsive center-block">
-                <br>
-            </div>
-        </div>
-        <div class="row">
-            <div class="login-area">
-                <form class="form-horizontal login" id="formLogin" action="curl.php" method="post">
-                    <div class="form-group">
-                        <div class="controls">
-                            <div class="input-group">
-                                <input id="loginEmail" tabindex="1" autofocus="autofocus" placeholder="Usuário" class="form-control" name="user" type="text">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            </div>
-                        </div>
-                    </div>
+<?php
+require '../Slim/Slim.php';
+\Slim\Slim::registerAutoloader();
 
-                    <div class="form-group">
-                        <div class="controls">
-                            <div class="input-group">
-                                <input id="loginSenha" tabindex="2" class="form-control" placeholder="Senha" name="senha" type="password">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            </div>
-                        </div>
-                    </div>
+/**
+ * NOTA MENTAL : Melhorar conhecimentos de regex
+ */
 
-                    <div class="form-group">
-                        <div class="controls">
-                            <input class="btn btn-lg btn-danger col-xs-12" tabindex="3" name="btnSubmit" type="submit" value="Login">
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+$app = new \Slim\Slim();
 
-  ga('create', 'UA-50597564-2', 'icaromh.com');
-  ga('send', 'pageview');
+$app->config(array(
+    'debug' => true,
+    'templates.path' => 'templates'
+));
 
-</script>
-</body>
-</html>
+
+/******************************************************************
+ *
+ * ROTAS
+ * 
+ *****************************************************************/
+$app->get('/', function() use ($app) {
+    $app->render('login.php');
+});
+
+$app->get('/notas', function() use($app){
+   $app->render('login.php'); 
+});
+
+$app->post('/notas', function() use($app){   
+    if(isset($_POST['user']) && isset($_POST['senha'])){
+        $user   = $_POST['user'];
+        $passwd = $_POST['senha'];
+
+        $error = false;
+
+        // Inicia o cURL
+        $ch = curl_init();
+
+        // Define a URL original (do formulário de login)
+        curl_setopt($ch, CURLOPT_URL, 'https://academicos.fadergs.edu.br/administracao/login.php');
+        curl_setopt($ch, CURLOPT_HEADER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "login={$user}&senha={$passwd}&sequencePage=validaLogin&enderecoPrograma=/administracao/paginaInicial.php");
+        curl_setopt($ch, CURLOPT_COOKIEJAR, 'cookie.txt');
+        curl_setopt($ch, CURLOPT_DNS_USE_GLOBAL_CACHE, false );
+        curl_setopt($ch, CURLOPT_DNS_CACHE_TIMEOUT, 2);
+
+        $store = curl_exec ($ch);
+        
+        if(strpos($store, 'Login e/ou Senha') !== false){
+            $app->render('login.php', array('err' => 'Login e/ou Senha incorretos') );
+            $app->stop();
+        }
+        else if(curl_errno($ch)){
+            $error = curl_error($ch);
+            $res   = "<h1>Desculpe, houve um erro na requisição :'(</h1> <pre>{$error}</pre>";
+        }
+        else{
+            # Define uma nova URL para ser chamada (após o login)
+            curl_setopt($ch, CURLOPT_URL, 'https://academicos.fadergs.edu.br/academico/consultaNotas.php');
+            curl_setopt($ch, CURLOPT_POSTFIELDS, 'sequencePage=historico&peri_id=2014110&peri_descricao=2014-1+N');
+
+            # Executa a segunda requisição
+            $content = curl_exec ($ch);
+            if(curl_errno($ch)){
+                $error = curl_error($ch);
+                $res   = "<h1>Desculpe, houve um erro na requisição :'(</h1> <pre>{$error}</pre>";
+            }else{
+                $res = utf8_encode($content);
+
+                # Separa apenas a tabela de dados
+                $res = explode('<table class="tabela_relatorio">', $res);
+                $res = explode('</table>', $res[1]);
+                $res = reset($res);
+
+                // separa as linhas
+                $res = explode('<tr>', $res);
+                unset($res[0]);
+                unset($res[1]);
+                $print = print_r($res, true);
+                $res = implode('<tr>', $res);
+                $res = "<table class=\"table-responsive\">" . $res . "</table>";
+            }
+        }
+        curl_close ($ch);
+    }
+    $app->render('notas.php', array('res' => $res));
+});
+
+$app->get('/sobre', function() use($app){
+    $app->render('info.html');
+});
+
+$app->get('/info.html', function() use($app){
+    $app->redirect('sobre', 301);
+});
+
+$app->run();
