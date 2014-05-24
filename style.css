@@ -39,70 +39,13 @@
 }
 
 
-.navbar{
-    border-radius: 0px;
-    background: #ebebeb;
-    margin: 0;
-    border: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 50px;
-    box-shadow: 0 1px 2px #272727;
-    z-index: 2000;
-}
-
-.navbar #logo{
-    height: 50px;
-}
-
-#main{
-    margin-top: 50px;
-    min-height: 800px;
-    overflow: hidden;
-}
-
-#sidebar-left{
-    background: #89A9C1;
-    position: relative;
-    z-index: inherit;
-    padding-bottom: 3000px !important;
-    margin-bottom: -3000px !important;
-}
-
-#content {
-    position: relative;
-    z-index: 10;
-    background: #ebebeb;
-    box-shadow: 0 0 6px #131313;
-    padding-bottom: 3000px !important;
-    margin-bottom: -2980px !important;
-    overflow: hidden;
-    -webkit-transition: 0.2s;
-    -moz-transition: 0.2s;
-    -o-transition: 0.2s;
-    transition: 0.2s;
-}
-
-.main-menu{
-    margin: 0 -15px;
-}
-
-.main-menu a{
-    color: #FFF;
-}
+.navbar{border-radius: 0px; background: #ebebeb; margin: 0; border: 0; position: fixed; top: 0; left: 0; width: 100%; min-height: 50px; box-shadow: 0 1px 2px #272727; z-index: 2000; }
+.navbar #logo{height: 50px; }
+#main{margin-top: 50px; min-height: 800px; overflow: hidden;}
+#sidebar-left{background: #89A9C1; position: relative; z-index: inherit; padding-bottom: 3000px !important; margin-bottom: -3000px !important; }
+#content {position: relative; z-index: 10; background: #ebebeb; box-shadow: 0 0 6px #131313; padding-bottom: 3000px !important; margin-bottom: -2980px !important; overflow: hidden; -webkit-transition: 0.2s; -moz-transition: 0.2s; -o-transition: 0.2s; transition: 0.2s; }
+.main-menu{margin: 0 -15px; }
+.main-menu a{color: #FFF; }
 .nav.main-menu a:hover,
-.nav.main-menu a.active{
-    background-color: #3E4D5E;
-}
-
-#breadcrumb {
-    padding: 0;
-    line-height: 40px;
-    background: #3E4D5E;
-    margin-bottom: 20px;
-    color: #d8d8d8;
-    font-weight: bold;
-    padding-left: 20px;
-}
+.nav.main-menu a.active{background-color: #3E4D5E; }
+#breadcrumb {padding: 0; line-height: 40px; background: #3E4D5E; margin-bottom: 20px; color: #d8d8d8; font-weight: bold; padding-left: 20px; }
