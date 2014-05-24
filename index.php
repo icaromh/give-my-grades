@@ -1,12 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="Shortcut Icon" type="image/ico" href="http://www.fadergs.edu.br/fadergs/img2/portal/favicon.ico">
-    <title>Give my grades!</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <head>
+        <title>Give my grades!</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="Shortcut Icon" type="image/ico" href="assets/img/favicon.ico">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
 </head>
 <body>
     <a href="https://github.com/icaromh2/give-my-grades"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
@@ -14,7 +16,7 @@
         <div class="row">
             <div class="col-md-12">
                 <br>
-                <img src="logo.png" alt="" class="img-responsive center-block">
+                    <img src="assets/images/logo.png" alt="" class="img-responsive center-block">
                 <br>
             </div>
         </div>

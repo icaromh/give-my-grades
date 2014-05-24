@@ -1,69 +1,3 @@
-<?php
-    /**
-     * NOTA MENTAL : Melhorar conhecimentos de regex
-     */
-
-    if(isset($_POST['user']) && isset($_POST['senha'])){
-        $user   = $_POST['user'];
-        $passwd = $_POST['senha'];
-
-        $error = false;
-
-        // Inicia o cURL
-        $ch = curl_init();
-
-        // Define a URL original (do formulário de login)
-        curl_setopt($ch, CURLOPT_URL, 'https://academicos.fadergs.edu.br/administracao/login.php');
-        curl_setopt($ch, CURLOPT_HEADER, 1);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, "login={$user}&senha={$passwd}&sequencePage=validaLogin&enderecoPrograma=/administracao/paginaInicial.php");
-        curl_setopt($ch, CURLOPT_COOKIEJAR, 'cookie.txt');
-        curl_setopt($ch, CURLOPT_DNS_USE_GLOBAL_CACHE, false );
-        curl_setopt($ch, CURLOPT_DNS_CACHE_TIMEOUT, 2);
-
-
-        // Executa a requisição
-        $store = curl_exec ($ch);
-        if(curl_errno($ch)){
-            $error = curl_error($ch);
-        }
-        else{
-            // Define uma nova URL para ser chamada (após o login)
-            curl_setopt($ch, CURLOPT_URL, 'https://academicos.fadergs.edu.br/academico/consultaNotas.php');
-            // curl_setopt ($ch, CURLOPT_POST, 0);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, 'sequencePage=historico&peri_id=2014110&peri_descricao=2014-1+N');
-
-            // Executa a segunda requisição
-            $content = curl_exec ($ch);
-            if(curl_errno($ch)){
-                $error = curl_error($ch);
-            }else{
-                $res = utf8_encode($content);
-
-                // Separa apenas a tabela de dados
-                $res = explode('<table class="tabela_relatorio">', $res);
-                $res = explode('</table>', $res[1]);
-                $res = reset($res);
-
-                // separa as linhas
-                $res = explode('<tr>', $res);
-                unset($res[0]);
-                unset($res[1]);
-                $print = print_r($res, true);
-                $res = implode('<tr>', $res);
-                // echo '<textarea>'.$print.'</textarea>';
-                // die();
-                $res = "<table class=\"table-responsive\">" . $res . "</table>";
-            }
-        }
-
-        // Encerra o cURL
-        curl_close ($ch);
-    }
-?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -125,14 +59,80 @@
                     <div class="col-xs-12 col-sm-10" id="content">
                         <div class="row">
                             <div id="breadcrumb" class="col-xs-12">
-                                Início / Notas do Semestre atual
+                                Início / Informações
                             </div>
                         </div>
-                            
-                            <div class="panel">
-                                <?php echo $res; ?>
-                                
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="panel">
+                                    <div class="col-xs-12">
+                                        <h3>Sobre o projeto</h3>
+                                        <p>
+                                            Esse site tem como fundamento facilitar o acesso a dados do Portal do Aluno da Faculdade de Desenvolvimento do Rio Grande do Sul (FADERGS), de forma que seja possível a navegação e visualização de dados a partir de dispositivos móveis.
+                                        </p>
+                                        <p>
+                                            Esse site não possui qualquer vínculo com a Instituição de ensino, foi desenvolvido para aprofundar conhecimentos do <a href="https://www.facebook.com/icaromh">desenvolvedor</a> e não visa qualquer tipo de lucro. Seu código está disponível no <a href="https://github.com/icaromh2/give-my-grades">Github</a> para qualquer pessoa que queria melhorá-lo ou utilizá-lo.
+                                        </p>
+                                        <p class="alert alert-danger">
+                                            O site <strong>NÃO</strong> guarda nenhum tipo de dados do usuário. <strong>NÃO são salvas senhas</strong> ou qual aluno está logado.
+                                        </p>
+                                        <p>
+                                            Até o momento foi desenvolvido apenas a busca por notas do semestre atual, mas está em desenvolvimento para que sejam buscados novos dados.
+                                            
+                                            <br>
+                                            São eles:
+                                            <ul>
+                                                <li>Salas em que o aluno tem aula</li>
+                                                <li>Download do Boleto atual e atrasado</li>
+                                                <li>Histórico do aluno</li>
+                                                <li>Relatório de horas complementares</li>
+                                            </ul>
+                                        </p>
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>                            
                             </div>
+                        </div>
+
+                        <div class="row">
+                            <hr>
+                            <div class="col-xs-3">
+                                <strong>Campus Centro</strong>
+                                <p>
+                                    Rua Riachuelo, 1257 <br>
+                                    Porto Alegre - RS , 90.010-273
+                                </p>
+                                
+                               <p>
+                                    Rua General Vitorino, 25 <br>
+                                    Porto Alegre - RS , 90.020-171
+                               </p>
+
+                                <p>
+                                    Rua Uruguai, 330 <br>
+                                    Porto Alegre - RS , 90.010-140
+                                </p>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <strong>Campus da Saúde</strong>
+                                <p>
+                                    Rua Luiz Afonso, 84 <br>
+                                    Porto Alegre - RS , 90.050-310
+                                </p>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <strong>Campus Zona Norte</strong>
+                                <p>
+                                    Av. Sertório, 5310
+                                    Porto Alegre - RS , 91.050-370
+                                </p>
+                            </div>
+                        </div>
+                          
 
                     </div>
                     
