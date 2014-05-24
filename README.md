@@ -7,7 +7,7 @@
 
 Esse site tem como fundamento facilitar o acesso a dados do Portal do Aluno da [Faculdade de Desenvolvimento do Rio Grande do Sul (FADERGS)](http://www.fadergs.edu.br/fadergs/), de forma que seja possível a navegação e visualização de dados a partir de dispositivos móveis.
 
-Esse site não possui qualquer vínculo com a Instituição de ensino, foi desenvolvido para aprofundar conhecimentos do desenvolvedor e não visa qualquer tipo de lucro. Seu código está disponível no Github para qualquer pessoa que queria melhorá-lo ou utilizá-lo.
+Esse site não possui qualquer vínculo com a Instituição de ensino, foi desenvolvido para aprofundar conhecimentos do [desenvolvedor](https://www.facebook.com/icaromh) e não visa qualquer tipo de lucro. Seu código está disponível no [Github](https://github.com/icaromh2/give-my-grades) para qualquer pessoa que queria melhorá-lo ou utilizá-lo.
 
 O site **NÃO guarda** nenhum tipo de dados do usuário. **NÃO são salvas senhas** ou qual aluno está logado.
 
@@ -20,6 +20,9 @@ São eles:
 * Histórico do aluno
 * Relatório de horas complementares
 * Desenvolver busca de dados utilizando multi threads
+
+A preocupação foi voltada para perfomance mobile e não tanto para a padronização do script que faz a busca pelos dados. No momento está todo dentro do arquivo curl.php, mas entre os planos de desenvolvimento está transformar essas buscas em Classes e assíncronas, para melhor aproveitamento do servidor. 
+Por se tratar de um projeto para estudo entre os planos ainda está implementar um pré-processador de CSS (LESS ou SASS) e um automatizador de tarefas para deploy (GRUNT, preferencialmente). 
 
 ---
 
