@@ -1,0 +1,10 @@
+######################################
+##
+## ATIVA O GZIP PARA COMPRIMIR ARQUIVOS
+##
+######################################
+<IfModule mod_deflate.c>
+  <FilesMatch "\\.(js|css|html|htm|php|xml|json)$">
+    SetOutputFilter DEFLATE
+  </FilesMatch>
+</IfModule>
