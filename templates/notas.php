@@ -49,7 +49,7 @@
                             <li><a href="info.html">
                                 <i class="glyphicon glyphicon-off"></i> Sair
                             </a></li> -->
-                            <li><a href="info.html">
+                            <li><a href="sobre">
                                 <i class="glyphicon glyphicon-info-sign"></i> Sobre
                             </a></li>
                         </ul>
