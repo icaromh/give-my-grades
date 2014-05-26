@@ -5,6 +5,8 @@
 <a name="about"/>
 ###Sobre o projeto
 
+**Para que o projeto funcione é necessário a instalação do Slim Framework um nível acima dentro de uma pasta Slim**
+
 Esse site tem como fundamento facilitar o acesso a dados do Portal do Aluno da [Faculdade de Desenvolvimento do Rio Grande do Sul (FADERGS)](http://www.fadergs.edu.br/fadergs/), de forma que seja possível a navegação e visualização de dados a partir de dispositivos móveis.
 
 Esse site não possui qualquer vínculo com a Instituição de ensino, foi desenvolvido para aprofundar conhecimentos do [desenvolvedor](https://www.facebook.com/icaromh) e não visa qualquer tipo de lucro. Seu código está disponível no [Github](https://github.com/icaromh2/give-my-grades) para qualquer pessoa que queria melhorá-lo ou utilizá-lo.
