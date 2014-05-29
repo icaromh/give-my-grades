@@ -28,13 +28,15 @@
                 <div class="row">
                     <div class="col-xs-5 col-sm-2" id="sidebar-left">
                         <ul class="nav main-menu">
-                            <li><a href="index.php" class="active">
+                            <li><a href="notas" class="active">
                                 <i class="glyphicon glyphicon-home"></i> Início
                             </a></li>
-                           <!--  <li><a href="info.html">
-                                <i class="glyphicon glyphicon-list-alt"></i> <span class="hidden-xs">Notas</span>
-                            </a></li>
-                            <li><a href="info.html">
+                            <li>
+                                <a href="segunda-via">
+                                    <i class="glyphicon glyphicon-list-alt"></i> <span class="hidden-xs">Boleto</span>
+                                </a>
+                            </li>
+                            <!-- <li><a href="info.html">
                                 <i class="glyphicon glyphicon-list-alt"></i> Salas
                             </a></li>
                             <li><a href="info.html">
@@ -49,9 +51,16 @@
                             <li><a href="info.html">
                                 <i class="glyphicon glyphicon-off"></i> Sair
                             </a></li> -->
-                            <li><a href="sobre">
-                                <i class="glyphicon glyphicon-info-sign"></i> Sobre
-                            </a></li>
+                            <li>
+                                <a href="sobre">
+                                    <i class="glyphicon glyphicon-info-sign"></i> Sobre
+                                </a>
+                            </li>
+                            <li>
+                                <a href="logout">
+                                    <i class="glyphicon glyphicon-off"></i> Sair
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <div class="col-xs-12 col-sm-10" id="content">

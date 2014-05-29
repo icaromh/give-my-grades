@@ -27,7 +27,7 @@
                         <?php echo $err ?>
                     </p>
                 <?php endif; ?>
-                <form class="form-horizontal login" id="formLogin" action="notas" method="post">
+                <form class="form-horizontal login" id="formLogin" action="login" method="post">
                     <div class="form-group">
                         <div class="controls">
                             <div class="input-group">
