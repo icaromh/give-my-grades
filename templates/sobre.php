@@ -12,7 +12,7 @@
 
         <header id="header" class="navbar">
             <a href="https://github.com/icaromh2/give-my-grades"  target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0; z-index:1" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
-            
+
             <div class="container-fluid">
                 <div class="row">
                     <div id="logo" class="col-xs-12 col-sm-12">
@@ -31,9 +31,9 @@
                             <li><a href="notas" class="">
                                 <i class="glyphicon glyphicon-home"></i> Início
                             </a></li>
-                            <li>
+                            <li class="hidden-xs">
                                 <a href="segunda-via">
-                                    <i class="glyphicon glyphicon-list-alt"></i> <span class="hidden-xs">Boleto</span>
+                                    <i class="glyphicon glyphicon-list-alt"></i> Boleto
                                 </a>
                             </li>
                             <!--<li><a href="info.html">
@@ -86,7 +86,7 @@
                                         </p>
                                         <p>
                                             Até o momento foi desenvolvido apenas a busca por notas do semestre atual, mas está em desenvolvimento para que sejam buscados novos dados.
-                                            
+
                                             <br>
                                             São eles:
                                             <ul>
@@ -104,7 +104,7 @@
 
                                     </div>
                                     <div class="clearfix"></div>
-                                </div>                            
+                                </div>
                             </div>
                         </div>
 
@@ -116,7 +116,7 @@
                                     Rua Riachuelo, 1257 <br>
                                     Porto Alegre - RS , 90.010-273
                                 </p>
-                                
+
                                <p>
                                     Rua General Vitorino, 25 <br>
                                     Porto Alegre - RS , 90.020-171
