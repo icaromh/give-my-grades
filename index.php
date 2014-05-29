@@ -26,35 +26,36 @@ $app->get('/', function() use ($app) {
 });
 
 $app->get('/segunda-via', function() use($app){
-        $Portal = new Portal();
+    $Portal = new Portal();
+    $ch     = $Portal->initCurl();
 
-        $user = 'alu1210887';
-        $passwd = 'picaro123';
+    if(!$Portal->isLogged()){
+        $app->redirect("index.php");
+    }
+   
+    curl_setopt($ch, CURLOPT_POST, 0);
+    curl_setopt($ch, CURLOPT_URL, 'https://academicos.fadergs.edu.br/financeiro/segundaViaDoc.php');
+    $res    = $Portal->execCurl($ch);
+    $docsId = $Portal->pegaIdDocs($res);
 
-        $ch = $Portal->initCurl();
-        
-        if(!$Portal->isLogged())
-            $Portal->login($ch, $user, $passwd);
-       
-        # Define uma nova URL para ser chamada (após o login)
-        curl_setopt($ch, CURLOPT_POST, 0); # define método POST
-        curl_setopt($ch, CURLOPT_URL, 'https://academicos.fadergs.edu.br/financeiro/segundaViaDoc.php');
-        $res    = curl_exec($ch);
-        $docsId = $Portal->pegaIdDocs($res);
+    if(sizeof($docsId) > 1){
+       $app->render('notas.php', array('res' => 'Ha mais de um boleto a ser impresso! :('));
+       $app->stop();
+    }else{
         $docId  = reset($docsId);
 
-        // curl_setopt($ch, CURLOPT_POST, 1); # define método POST
-        // curl_setopt($ch, CURLOPT_POSTFIELDS, 'sequencePage=exibirSegundaVia&doc_id=' . $docId );
-        // $res = curl_exec ($ch);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 'sequencePage=exibirSegundaVia&doc_id=' . $docId );
+        $res = $Portal->execCurl($ch);
 
-        // header('Cache-Control: public'); 
-        // header('Content-type: application/pdf');
-        // header('Content-Disposition: attachment; filename="DOC_FADERGS_.pdf"');
-        // header('Content-Length: '.strlen($res)); 
+        $semestre = date("m") > 6 ? 2 : 1;
 
-        $res = '<pre>' . print_r($docsId, true) . '</pre>';
-        $app->render('notas.php', array('res' => $res));
-        // echo '<textarea name="" style="width:100%; height: 100%">'.$res.'</textarea>';
+        header('Cache-Control: public'); 
+        header('Content-type: application/pdf');
+        header('Content-Disposition: attachment; filename="DOC_FADERGS_'.date('Y').$semestre.'.pdf"');
+        header('Content-Length: '.strlen($res)); 
+        echo $res;
+    }
 });
 
 $app->post('/login', function() use($app){
