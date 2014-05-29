@@ -103,7 +103,7 @@ $app->get('/notas', function() use($app){
 });
 
 $app->get('/sobre', function() use($app){
-    $app->render('info.html');
+    $app->render('sobre.php');
 });
 
 $app->get('/info.html', function() use($app){
