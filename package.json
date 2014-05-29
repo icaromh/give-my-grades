@@ -1,0 +1,23 @@
+{
+  "name": "fadergs",
+  "version": "0.0.0",
+  "description": "Uma forma simples de ver as notas do poral",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/icaromh2/give-my-grades.git"
+  },
+  "keywords": [
+    "fadergs",
+    "notas"
+  ],
+  "author": "Icaro Heimig",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/icaromh2/give-my-grades/issues"
+  },
+  "homepage": "https://github.com/icaromh2/give-my-grades"
+}

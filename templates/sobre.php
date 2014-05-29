@@ -28,13 +28,15 @@
                 <div class="row">
                     <div class="col-xs-5 col-sm-2" id="sidebar-left">
                         <ul class="nav main-menu">
-                            <li><a href="index.php" class="">
+                            <li><a href="notas" class="">
                                 <i class="glyphicon glyphicon-home"></i> Início
                             </a></li>
-                            <!-- <li><a href="info.html">
-                                <i class="glyphicon glyphicon-list-alt"></i> <span class="hidden-xs">Notas</span>
-                            </a></li>
-                            <li><a href="info.html">
+                            <li>
+                                <a href="segunda-via">
+                                    <i class="glyphicon glyphicon-list-alt"></i> <span class="hidden-xs">Boleto</span>
+                                </a>
+                            </li>
+                            <!--<li><a href="info.html">
                                 <i class="glyphicon glyphicon-list-alt"></i> Salas
                             </a></li>
                             <li><a href="info.html">
@@ -51,8 +53,14 @@
                             </a></li> -->
                             <li>
                                 <a href="javascript:void(0)" class="active">
-                                <i class="glyphicon glyphicon-info-sign"></i> Sobre
-                            </a></li>
+                                    <i class="glyphicon glyphicon-info-sign"></i> Sobre
+                                </a>
+                            </li>
+                            <li>
+                                <a href="logout">
+                                    <i class="glyphicon glyphicon-off"></i> Sair
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <div class="col-xs-12 col-sm-10" id="content">
@@ -82,11 +90,11 @@
                                             <br>
                                             São eles:
                                             <ul>
-                                                <li>Salas em que o aluno tem aula</li>
-                                                <li>Download do Boleto atual e atrasado</li>
-                                                <li>Histórico do aluno</li>
-                                                <li>Relatório de horas complementares</li>
-                                                <li>Desenvolver busca de dados utilizando multi threads</li>
+                                                <li> Salas em que o aluno tem aula</li>
+                                                <li><i class="glyphicon glyphicon-thumbs-up"></i>  <s>Download do Boleto atual e atrasado</s></li>
+                                                <li> Histórico do aluno</li>
+                                                <li> Relatório de horas complementares</li>
+                                                <li> Desenvolver busca de dados utilizando multi threads</li>
                                             </ul>
                                         </p>
 
