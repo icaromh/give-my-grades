@@ -25,6 +25,34 @@ $app->get('/', function() use ($app) {
     $app->render('login.php');
 });
 
+
+$app->get('/esqueci-minha-senha', function() use ($app) {
+    $app->render('esqueci-senha.php');
+});
+
+$app->post('/nova-senha', function() use ($app) {
+    $user = trim($_POST['user']);
+    $email = trim($_POST['email']);
+
+    if(!empty($user) && !empty($email)){
+        $Portal = new Portal();
+        $res = $Portal->lembrarSenha($user, $email);
+        
+        # e-mail não confere
+        if($res == false){
+            $app->flash('error', 'Verifique os dados informados.');    
+            $app->flash('user',  $user);   
+            $app->flash('email', $email);            
+        }else{
+            $app->flash('success', 'Sua senha foi enviada para o email informado.');
+        }
+        $app->redirect('esqueci-minha-senha');
+    }else{
+        $app->flash('error', 'Por favor, preencha usuário e email.');
+        $app->redirect('esqueci-minha-senha');
+    }
+});
+
 $app->get('/segunda-via', function() use($app){
     $Portal = new Portal();
     $ch     = $Portal->initCurl();

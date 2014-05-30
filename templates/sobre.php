@@ -16,7 +16,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div id="logo" class="col-xs-12 col-sm-12">
-                        <button type="button" id="toggle-menu" class="btn btn-default btn-sm pull-left visible-xs" style="margin-top: 10px; margin-right: 10px;"><i class="glyphicon glyphicon-th-list"></i></button>
+                        <button type="button" id="toggle-menu" class="pull-left visible-xs"><i class="glyphicon glyphicon-th-list"></i></button>
                         <img src="assets/images/logo-interno.png" alt="" class="pull-left">
                     </div>
                     <div class="col-xs-12 col-sm-12">
@@ -26,7 +26,7 @@
             </header><!-- /header -->
             <div id="main" class="container-fluid">
                 <div class="row">
-                    <div class="col-xs-5 col-sm-2" id="sidebar-left">
+                    <div class="col-xs-6 col-sm-2" id="sidebar-left">
                         <ul class="nav main-menu">
                             <li><a href="notas" class="">
                                 <i class="glyphicon glyphicon-home"></i> Início

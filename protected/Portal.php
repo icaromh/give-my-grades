@@ -129,6 +129,35 @@ class Portal
     }
 
     /**
+     * Envia um POST para a url de lembrar senha da faculdade , se o formulário for válido, retorna true, senão false
+     * @param  String $user  Login do portal
+     * @param  String $email Email cadastrado no Portal
+     * @return Bool        True ou False
+     */
+    public function lembrarSenha($user, $email)
+    {    
+        $ch = $this->initCurl();
+
+        $postData = array(
+            'usua_login'   => $user,
+            'pess_email'   => $email, 
+            'sequencePage' => 'verificaDados'
+        );
+
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_URL, 'https://academicos.fadergs.edu.br/administracao/esqueciMinhaSenha.php');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData );
+        $res = $this->execCurl($ch);
+
+        if(strpos(utf8_encode($res), 'e-mail não confere') !== false)
+            return false;
+        else if(strpos(utf8_encode($res), 'Por motivos de segurança a sua senha foi alterada automaticamente e enviada para o seu e-mail') !== false)
+            return true;
+        else
+            return false;
+    }
+
+    /**
      * Ref: 
      *     http://board.phpbuilder.com/showthread.php?10346748-RESOLVED-Curl-with-sessions
      *     http://stackoverflow.com/a/18151707

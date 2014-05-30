@@ -26,7 +26,7 @@
             </header><!-- /header -->
             <div id="main" class="container-fluid">
                 <div class="row">
-                    <div class="col-xs-5 col-sm-2" id="sidebar-left">
+                    <div class="col-xs-6 col-sm-2" id="sidebar-left">
                         <ul class="nav main-menu">
                             <li><a href="notas" class="active">
                                 <i class="glyphicon glyphicon-home"></i> Início

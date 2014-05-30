@@ -22,16 +22,24 @@
         </div>
         <div class="row">
             <div class="login-area">
-                <?php if(isset($err)): ?>
+                <?php if(isset($flash['error'])): ?>
                     <p class="alert alert-danger">
-                        <?php echo $err ?>
+                        <?php echo $flash['error'] ?>
+                    </p>
+                <?php elseif (isset($flash['success'])): ?>
+                    <p class="alert alert-success">
+                        <?php echo $flash['success'] ?>
+                    </p>
+                    <p>
+                        <a href="index.php" class="btn btn-primary btn-lg col-xs-12">Início</a>
                     </p>
                 <?php endif; ?>
-                <form class="form-horizontal login" id="formLogin" action="login" method="post">
+
+                <form class="form-horizontal login <?php if(isset($flash['success'])) echo 'hidden'; ?>" id="formLogin" action="nova-senha" method="post">
                     <div class="form-group">
                         <div class="controls">
                             <div class="input-group">
-                                <input id="loginEmail" tabindex="1" autofocus="autofocus" placeholder="Usuário" class="form-control" name="user" type="text">
+                                <input id="loginEmail" tabindex="1" autofocus="autofocus" placeholder="Login" class="form-control" value="<?php if(isset($flash['user'])) echo $flash['user'] ?>" name="user" type="text">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                             </div>
                         </div>
@@ -40,17 +48,18 @@
                     <div class="form-group">
                         <div class="controls">
                             <div class="input-group">
-                                <input id="loginSenha" tabindex="2" class="form-control" placeholder="Senha" name="senha" type="password">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input id="loginSenha" tabindex="2" class="form-control" placeholder="Email" name="email" type="text" value="<?php if(isset($flash['email'])) echo $flash['email'] ?>">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="controls">
-                            <input class="btn btn-lg btn-danger col-xs-12" tabindex="3" name="btnSubmit" type="submit" value="Login">
+                            <input class="btn btn-lg btn-danger col-xs-12" tabindex="3" name="btnSubmit" type="submit" value="Gerar nova senha">
+                            <div class="clearfix"><br></div>
+                            <a href="index.php" class="btn btn-primary  col-xs-12"><i class="glyphicon glyphicon-chevron-left"></i> Voltar</a>
                         </div>
-                        <a href="esqueci-minha-senha" title="Esqueci minha senha ">Esqueci minha senha</a>
                     </div>
                 </form>
             </div>
