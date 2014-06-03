@@ -140,7 +140,6 @@ $app->get('/info.html', function() use($app){
 });
 
 $app->get('/logout', function() use($app){
-    session_start();
     session_destroy();
     $app->redirect('index.php');
 });
