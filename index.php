@@ -30,6 +30,12 @@ $app->get('/esqueci-minha-senha', function() use ($app) {
     $app->render('esqueci-senha.php');
 });
 
+$app->get('/trocar-senha', function() use ($app) {
+    $app->render('trocar-senha.php');
+});
+
+
+
 $app->post('/nova-senha', function() use ($app) {
     $user = trim($_POST['user']);
     $email = trim($_POST['email']);

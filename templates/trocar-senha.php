@@ -28,16 +28,18 @@
                 <div class="row">
                     <div class="col-xs-6 col-sm-2" id="sidebar-left">
                         <ul class="nav main-menu">
-                            <li><a href="notas" class="active">
-                                <i class="glyphicon glyphicon-home"></i> Início
-                            </a></li>
+                            <li>
+                                <a href="notas">
+                                    <i class="glyphicon glyphicon-home"></i> Início
+                                </a>
+                            </li>
                             <li class="hidden-xs">
                                 <a href="segunda-via">
                                     <i class="glyphicon glyphicon-list-alt"></i> Boleto
                                 </a>
                             </li>
                             <li>
-                                <a href="trocar-senha">
+                                <a href="trocar-senha" class="active">
                                     <i class="glyphicon glyphicon-lock"></i> Trocar Senha
                                 </a>
                             </li>
@@ -56,14 +58,40 @@
                     <div class="col-xs-12 col-sm-10" id="content">
                         <div class="row">
                             <div id="breadcrumb" class="col-xs-12">
-                                Início / Notas do Semestre atual
+                                Início / Alteração de Senha
                             </div>
                         </div>
 
-                            <div class="panel">
-                                <?php echo $res; ?>
+                        <div class="panel">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <form action="trocar-senha" method="post" accept-charset="utf-8" style="padding: 10px">                    
+                                        <p>Para alterar sua senha do portal preencha o forḿulário abaixo</p>
 
+                                        <div class="form-group">
+                                            <div class="controls">
+                                                <label for="exampleInputEmail1">Nova Senha:</label>
+                                                <input type="password" name="senha" value="" class="form-control" autofocus>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="controls">
+                                                <label for="exampleInputEmail1">Repetir Nova Senha: </label>
+                                                <input type="password" name="senhaConfirmacao" value="" class="form-control">
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Alterar senha</button>
+                                        <button type="reset" class="btn btn-default">Limpar</button>
+
+                                        <input type="hidden" name="token_check_sum" value="<?php $token_check_sum; ?>">
+                                        <input type="hidden" name="token_sync" value="<?php $token_sync; ?>">
+                                        <input type="hidden" name="sequencePage" value="<?php $token_check_sum; ?>">
+                                        <input type="hidden" name="senhaxsenhaConfirmacao" value="<?php $token_check_sum; ?>">
+                                    </form>
+                                <br>                                        
+                                </div>
                             </div>
+                        </div>
 
                     </div>
 

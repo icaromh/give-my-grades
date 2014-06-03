@@ -28,31 +28,23 @@
                 <div class="row">
                     <div class="col-xs-6 col-sm-2" id="sidebar-left">
                         <ul class="nav main-menu">
-                            <li><a href="notas" class="">
-                                <i class="glyphicon glyphicon-home"></i> Início
-                            </a></li>
+                            <li>
+                                <a href="notas">
+                                    <i class="glyphicon glyphicon-home"></i> Início
+                                </a>
+                            </li>
                             <li class="hidden-xs">
                                 <a href="segunda-via">
                                     <i class="glyphicon glyphicon-list-alt"></i> Boleto
                                 </a>
                             </li>
-                            <!--<li><a href="info.html">
-                                <i class="glyphicon glyphicon-list-alt"></i> Salas
-                            </a></li>
-                            <li><a href="info.html">
-                                <i class="glyphicon glyphicon-usd"></i> Boleto
-                            </a></li>
-                            <li><a href="info.html">
-                                <i class="glyphicon glyphicon-folder-close"></i> Histórico
-                            </a></li>
-                            <li><a href="info.html">
-                                <i class="glyphicon glyphicon-dashboard"></i> Horas Complementares
-                            </a></li> -->
-                            <!-- <li><a href="info.html">
-                                <i class="glyphicon glyphicon-off"></i> Sair
-                            </a></li> -->
                             <li>
-                                <a href="javascript:void(0)" class="active">
+                                <a href="trocar-senha">
+                                    <i class="glyphicon glyphicon-lock"></i> Trocar Senha
+                                </a>
+                            </li>
+                            <li>
+                                <a href="sobre" class="active">
                                     <i class="glyphicon glyphicon-info-sign"></i> Sobre
                                 </a>
                             </li>
