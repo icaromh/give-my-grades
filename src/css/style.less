@@ -1,0 +1,238 @@
+
+.login-area{
+    width: 200px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.table-responsive{
+    width: 100%;
+    overflow: hidden;
+    border-collapse: collapse;
+
+    tr:nth-of-type(odd){
+        background: #eee;
+        
+    }
+    
+    tr:nth-of-type(odd) td,
+    tr:nth-of-type(odd) th{
+        border-top: 1px solid #fdfdfd;
+    }
+
+    td, 
+    th{
+        font-family: arial, sans-serif;
+
+        min-height: 30px;
+        padding: 6px;
+
+        text-align: left;
+
+        border: 1px solid #ccc;
+    }
+    
+    th{
+        font-weight: bold;
+
+        color: #333;
+        border: 0;
+        border-bottom: 1px solid #ccc;
+        background: #fff;
+    }
+}
+
+
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)
+{
+    .table-responsive{
+    
+        /* Force table to not be like tables anymore */
+        thead, tbody, th, td, tr {
+            display: block;
+        }
+        
+        /* Hide table headers (but not display: none;, for accessibility) */
+        tr th {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+        
+        tr {
+            border: 1px solid #ccc;
+            border-top: 0;
+        }
+        
+        /* Behave  like a "row" */
+        td {
+            position: relative;
+
+            padding-left: 50%;
+
+            border: none;
+            border-bottom: 1px solid #eee;
+            
+            /* Now like a table header */
+            &:before {
+                position: absolute; /* Top/left values mimic padding */
+                top: 6px;
+                left: 6px;
+
+                width: 45%;
+                padding-right: 10px;
+
+                white-space: nowrap;
+                font-weight: bold;
+            }
+        }
+        
+        /* Label the data */
+        td:nth-of-type(1):before {
+            content: 'Curso';
+        }
+        td:nth-of-type(2):before {
+            content: 'Turma';
+        }
+        td:nth-of-type(3):before {
+            content: 'Disciplina';
+        }
+        td:nth-of-type(4):before {
+            content: 'Notas Parciais';
+        }
+        td:nth-of-type(5):before {
+            content: 'Exame';
+        }
+        td:nth-of-type(6):before {
+            content: 'Grau Final';
+        }
+        td:nth-of-type(7):before {
+            content: 'Status';
+        }
+        td:nth-of-type(8):before {
+            content: 'Faltas';
+        }
+        
+    }
+
+}
+
+
+.navbar{
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    min-height: 50px;
+    margin: 0;
+
+    border: 0;
+    border-radius: 0;
+    background: #ebebeb;
+    box-shadow: 0 1px 2px #272727;
+    
+    #logo {
+        height: 50px;
+    }
+    
+    #toggle-menu {
+        margin-left: -15px;
+        margin-right: 10px;
+        height: 100%;
+        width: 50px;
+        background: none;
+        border: 0px;
+        transition: background 0.2s;
+        
+        &:hover{
+            background: rgba(0, 0, 0,0.2);
+        }
+    }
+}
+
+
+#main{
+    overflow: hidden;
+
+    min-height: 800px;
+    margin-top: 50px;
+}
+
+#sidebar-left {
+    position: relative;
+    z-index: inherit;
+
+    margin-bottom: -3000px !important;
+    padding-bottom: 3000px !important;
+
+    background: #89a9c1;
+}
+
+#content{
+    position: relative;
+    z-index: 10;
+
+    overflow: hidden;
+
+    margin-bottom: -2980px !important;
+    padding-bottom: 3000px !important;
+
+    transition: .2s;
+
+    background: #ebebeb;
+    box-shadow: 0 0 6px #131313;
+}
+
+.main-menu {
+    margin: 0 -15px;
+    
+    a {
+        color: #fff;
+    }
+}
+.nav.main-menu a:hover,
+.nav.main-menu a.active
+{
+    background-color: #3e4d5e;
+}
+
+#breadcrumb {
+    font-weight: bold;
+    line-height: 40px;
+
+    margin-bottom: 20px;
+    padding: 0;
+    padding-left: 20px;
+
+    color: #d8d8d8;
+    background: #3e4d5e;
+}
+
+/* Configurando menu */
+@media only screen and (max-width: 760px)
+{
+    #sidebar-left
+    {
+        position: fixed;
+        left: -999px;
+
+        height: 100%;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+
+        transition: .2s;
+
+        box-shadow: 0 0 6px #131313;
+    }
+    .has-sidebar #sidebar-left
+    {
+        z-index: 30;
+        left: 0;
+    }
+}
+
+.content-area{
+    padding: 10px;
+}
