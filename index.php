@@ -5,10 +5,6 @@ require 'protected/Portal.php';
 \Slim\Slim::registerAutoloader();
 
 
-/**
- * NOTA MENTAL : Melhorar conhecimentos de regex
- */
-
 $app    = new \Slim\Slim();
 
 $app->config(array(
@@ -16,26 +12,34 @@ $app->config(array(
     'templates.path' => 'templates'
 ));
 
-/******************************************************************
- *
- * ROTAS
- * 
- *****************************************************************/
+
+/**
+ * Rota Padrão para página de login
+ */
 $app->get('/', function() use ($app) {
     $app->render('login.php');
 });
 
 
+/**
+ * Rota para Esqueci Minha Senha
+ */
 $app->get('/esqueci-minha-senha', function() use ($app) {
     $app->render('esqueci-senha.php');
 });
 
+
+/**
+ * Rota para Alterar Senha, precisa estar logado
+ */
 $app->get('/trocar-senha', function() use ($app) {
     $app->render('trocar-senha.php');
 });
 
 
-
+/**
+ * Envia a requisição de nova senha para a FADERGS, retorna se foi alterada ou se falhou
+ */
 $app->post('/nova-senha', function() use ($app) {
     $user = trim($_POST['user']);
     $email = trim($_POST['email']);
@@ -59,6 +63,10 @@ $app->post('/nova-senha', function() use ($app) {
     }
 });
 
+
+/**
+ * Requere a segunda via do boleto atual
+ */
 $app->get('/segunda-via', function() use($app){
     $Portal = new Portal();
     $ch     = $Portal->initCurl();
@@ -92,6 +100,10 @@ $app->get('/segunda-via', function() use($app){
     }
 });
 
+
+/**
+ * Requere o login no portal, retorna se usuário ou senha incorretou ou então redireciona para dentro do sistema
+ */
 $app->post('/login', function() use($app){
      if(isset($_POST['user']) && isset($_POST['senha'])){
         $Portal = new Portal();
@@ -111,11 +123,15 @@ $app->post('/login', function() use($app){
     }
 });
 
-$app->get('/notas', function() use($app){   
-    $Portal = new Portal();
-    $ch     = $Portal->initCurl();
 
-    $periodo = '2014110';
+/**
+ * Exibe as notas do semestre corrente
+ */
+$app->get('/notas', function() use($app){   
+    $Portal   = new Portal();
+    $ch       = $Portal->initCurl();
+    $semestre = date("m") > 6 ? 2 : 1;
+    $periodo  = date('Y') . $semestre . '10';
     
     curl_setopt($ch, CURLOPT_URL, 'https://academicos.fadergs.edu.br/academico/consultaNotas.php');
     curl_setopt($ch, CURLOPT_POSTFIELDS, 'sequencePage=historico&peri_id=' . $periodo . '&peri_descricao=2014-1+N');
@@ -137,17 +153,30 @@ $app->get('/notas', function() use($app){
     $app->render('notas.php', array('res' => $res));
 });
 
+
+/**
+ * Exibe a página com informações sobre o projeto
+ */
 $app->get('/sobre', function() use($app){
     $app->render('sobre.php');
 });
 
+
+/**
+ * Antiga rota para informações
+ */
 $app->get('/info.html', function() use($app){
     $app->redirect('sobre', 301);
 });
 
+
+/**
+ * Rota para deslogar, no caso apenas apaga a sessão
+ */
 $app->get('/logout', function() use($app){
     session_destroy();
     $app->redirect('index.php');
 });
+
 
 $app->run();
