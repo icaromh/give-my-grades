@@ -31,11 +31,8 @@ Por se tratar de um projeto para estudo entre os planos ainda está implementar 
 <a name="screen"/>
 ### Telas
 
-Desktop
-![alt text](https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-prn1/t1.0-9/10376087_866403226719258_2396720702805635745_n.jpg "Exeplo de tela em desktop")
-
 Mobile
-![alt text](https://scontent-b-lga.xx.fbcdn.net/hphotos-frc3/t1.0-9/10401463_866403276719253_2212956456350355719_n.jpg "Exeplo de tela em dispositivo móvel")
+![alt text](http://blog.icaromh.com/wp-content/uploads/2014/08/68747470733a2f2f73636f6e74656e742d622d6c67612e78782e666263646e2e6e65742f6870686f746f732d667263332f74312e302d392f31303430313436335f3836363430333237363731393235335f323231323935363435363335303335353731395f6e2e6a7067.jpg "Exeplo de tela em dispositivo móvel")
 
 ---
 
