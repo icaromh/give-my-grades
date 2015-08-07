@@ -1,3 +1,9 @@
+# DESCONTINUADO
+
+A faculdade hoje possui um novo portal, resposivo e mais agradável ao usuário não havendo mais necessidade desse projeto.
+
+
+
 * [Sobre](#about)
 * [Telas](#screen)
 * [Refêrencias](#ref)
